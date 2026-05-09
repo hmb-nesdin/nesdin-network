@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HMB-NeSDiN — Harvard–MIT–Boston Nepali Scientists Diaspora Network</title>
+<meta name="description" content="The Harvard–MIT–Boston Nepali Scientists Diaspora Network (HMB-NeSDiN) connects Nepali scientists, postdocs, graduate students, and biotech professionals across Harvard, MIT, and the Greater Boston area to engage, communicate, and collaborate with one another and with the Government of Nepal." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  :root {
+    --navy: #0e2a47;
+    --navy-2: #143d66;
+    --crimson: #a3232b;
+    --gold: #b8893a;
+    --bg: #fbf8f3;
+    --paper: #ffffff;
+    --ink: #1c1c1c;
+    --ink-soft: #4a4a4a;
+    --rule: #d9d2c2;
+    --shadow: 0 1px 2px rgba(20, 30, 50, 0.06), 0 8px 24px rgba(20, 30, 50, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+    color: var(--navy);
+    line-height: 1.2;
+    margin: 0 0 0.5em;
+    letter-spacing: -0.01em;
+  }
+  h1 { font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 700; }
+  h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 600; }
+  h3 { font-size: 1.35rem; font-weight: 600; }
+  p  { margin: 0 0 1em; color: var(--ink-soft); }
+  a  { color: var(--crimson); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ---------- Header ---------- */
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(251, 248, 243, 0.92);
+    backdrop-filter: saturate(160%) blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+  .crest {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 60%, var(--crimson) 100%);
+    color: #fff;
+    display: grid; place-items: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    box-shadow: var(--shadow);
+  }
+  img.crest {
+    background: transparent;
+    object-fit: cover;
+    box-shadow: var(--shadow);
+    padding: 0;
+  }
+  .brand-text {
+    display: flex; flex-direction: column; line-height: 1.1;
+  }
+  .brand-text .name {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--navy);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .brand-text .sub {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .nav-links {
+    display: flex; gap: 1.75rem; align-items: center;
+  }
+  .nav-links a {
+    color: var(--navy);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  .nav-links a.cta {
+    background: var(--navy);
+    color: #fff;
+    padding: 0.55rem 1.1rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  .nav-links a.cta:hover { background: var(--crimson); text-decoration: none; }
+
+  .menu-toggle {
+    display: none;
+    background: none; border: 0;
+    font-size: 1.5rem; color: var(--navy);
+    cursor: pointer; padding: 0.25rem 0.5rem;
+  }
+
+  @media (max-width: 820px) {
+    .nav-links {
+      position: absolute; top: 100%; right: 0; left: 0;
+      background: var(--bg);
+      flex-direction: column;
+      gap: 0; align-items: stretch;
+      border-bottom: 1px solid var(--rule);
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .nav-links.open { max-height: 480px; }
+    .nav-links a {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .nav-links a.cta {
+      margin: 1rem 1.5rem;
+      text-align: center;
+      border-top: 0;
+    }
+    .menu-toggle { display: block; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding: 5rem 0 4.5rem;
+    background:
+      radial-gradient(ellipse at 80% -10%, rgba(163,35,43,0.08), transparent 55%),
+      radial-gradient(ellipse at 0% 110%, rgba(14,42,71,0.10), transparent 50%),
+      var(--bg);
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .hero p.lead {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 38em;
+    margin-bottom: 2rem;
+  }
+  .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.15s, background 0.2s, color 0.2s;
+    text-decoration: none;
+  }
+  .btn-primary { background: var(--navy); color: #fff; }
+  .btn-primary:hover { background: var(--crimson); text-decoration: none; transform: translateY(-1px); }
+  .btn-ghost { border: 1px solid var(--navy); color: var(--navy); }
+  .btn-ghost:hover { background: var(--navy); color: #fff; text-decoration: none; }
+
+  /* Decorative seal/card on hero right */
+  .seal {
+    position: relative;
+    aspect-ratio: 1 / 1.05;
+    max-width: 380px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    padding: 2rem 1.75rem;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .seal::before {
+    content: '';
+    position: absolute; inset: 8px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    pointer-events: none;
+  }
+  .seal .ring {
+    width: 130px; height: 130px;
+    margin: 0.5rem auto 1rem;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    position: relative;
+    padding: 6px;
+  }
+  .seal .ring::after {
+    content: ''; position: absolute; inset: 0;
+    border: 1px dashed var(--gold);
+    border-radius: 50%;
+  }
+  .seal .ring img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    display: block;
+  }
+  .seal h3 {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin: 0.25rem 0 0.5rem;
+  }
+  .seal .motto {
+    text-align: center;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    margin: 0;
+  }
+  .seal .est {
+    text-align: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 1rem;
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: 5rem 0; }
+  .section-head { text-align: center; margin-bottom: 3rem; }
+  .section-head .eyebrow { margin-bottom: 0.6rem; }
+  .section-head p { max-width: 42em; margin: 0.5rem auto 0; }
+
+  /* About */
+  #about { background: var(--paper); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    margin-top: 1rem;
+  }
+  @media (max-width: 800px) { .pillars { grid-template-columns: 1fr; } }
+  .pillar {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    padding: 1.75rem;
+    border-radius: 4px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .pillar:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .pillar-icon {
+    width: 44px; height: 44px;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .pillar h3 { margin-bottom: 0.4rem; }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+  }
+  @media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat { text-align: center; }
+  .stat .num {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--crimson);
+    font-weight: 700;
+    line-height: 1;
+  }
+  .stat .lbl {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 0.4rem;
+    display: block;
+  }
+
+  /* Leadership */
+  .subgroup-title {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--crimson);
+    margin: 0 0 1.5rem;
+    position: relative;
+  }
+  .subgroup-title::before, .subgroup-title::after {
+    content: '';
+    display: inline-block;
+    width: 36px;
+    height: 1px;
+    background: var(--rule);
+    vertical-align: middle;
+    margin: 0 1rem;
+  }
+  .team {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 900px) { .team { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .team { grid-template-columns: 1fr; } }
+  .member {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 1.5rem;
+    border-radius: 6px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .member:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .avatar {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    background: linear-gradient(135deg, var(--navy), var(--navy-2));
+    color: #fff;
+    display: grid; place-items: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    border: 3px solid var(--paper);
+    box-shadow: 0 0 0 1px var(--rule);
+    overflow: hidden;
+    position: relative;
+  }
+  .avatar img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+  .member h3 { margin-bottom: 0.15rem; font-size: 1.15rem; }
+  .role {
+    color: var(--crimson);
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .affil { font-size: 0.88rem; color: var(--ink-soft); margin: 0; }
+
+  .members-note {
+    margin-top: 2.5rem;
+    text-align: center;
+    padding: 1.5rem;
+    border: 1px dashed var(--rule);
+    border-radius: 6px;
+    background: var(--paper);
+  }
+  .members-note p { margin: 0; font-style: italic; }
+
+  /* Events */
+  #events { background: var(--paper); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .events-list {
+    display: grid;
+    gap: 1.25rem;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .event {
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--crimson);
+    padding: 1.25rem 1.5rem;
+    border-radius: 4px;
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+  .event:hover { transform: translateX(2px); box-shadow: var(--shadow); }
+  @media (max-width: 700px) {
+    .event { grid-template-columns: 1fr; gap: 0.5rem; }
+  }
+  .event-date {
+    text-align: center;
+    border-right: 1px solid var(--rule);
+    padding-right: 1.5rem;
+  }
+  @media (max-width: 700px) {
+    .event-date { border-right: 0; border-bottom: 1px solid var(--rule); padding: 0 0 0.75rem; text-align: left; display: flex; gap: 0.5rem; align-items: baseline; }
+  }
+  .event-date .month {
+    font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    font-weight: 700;
+  }
+  .event-date .day {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .event-date .year {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+  .event-body h3 { margin-bottom: 0.25rem; font-size: 1.15rem; }
+  .event-body p { margin: 0; font-size: 0.92rem; }
+  .event-meta {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+    margin-top: 0.35rem;
+  }
+  .event-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+  @media (max-width: 850px) { .news-grid { grid-template-columns: 1fr; } }
+  .news-card {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 1.5rem;
+  }
+  .news-card .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+  .news-card h3 { font-size: 1.15rem; }
+  .news-card .date { font-size: 0.8rem; color: var(--ink-soft); margin-top: 0.5rem; }
+
+  /* Get Involved */
+  .involve-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 850px) { .involve-grid { grid-template-columns: 1fr; gap: 2rem; } }
+  .involve-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 2rem;
+  }
+  .involve-card ul {
+    padding-left: 1.1rem; margin: 0 0 1rem;
+    color: var(--ink-soft);
+  }
+  .involve-card li { margin-bottom: 0.5rem; }
+  .contact-meta {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  .contact-meta div {
+    display: flex; gap: 0.75rem; align-items: baseline;
+    font-size: 0.95rem;
+  }
+  .contact-meta .label {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    width: 80px; flex-shrink: 0;
+  }
+
+  form { display: grid; gap: 1rem; }
+  label {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    font-weight: 600;
+  }
+  input, textarea, select {
+    font-family: inherit;
+    font-size: 0.98rem;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--bg);
+    color: var(--ink);
+    width: 100%;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px rgba(14,42,71,0.12);
+  }
+  textarea { resize: vertical; min-height: 110px; }
+  .field { display: grid; gap: 0.4rem; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 500px) { .row { grid-template-columns: 1fr; } }
+  button[type="submit"] {
+    background: var(--navy);
+    color: #fff;
+    border: 0;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+    justify-self: start;
+  }
+  button[type="submit"]:hover { background: var(--crimson); }
+  .form-msg {
+    padding: 0.85rem 1rem;
+    border-radius: 4px;
+    background: #e7f0e6;
+    border: 1px solid #b9d3b6;
+    color: #2e5a2c;
+    font-size: 0.92rem;
+    display: none;
+  }
+  .form-msg.show { display: block; }
+
+  /* Footer */
+  footer {
+    background: var(--navy);
+    color: #d9e3f0;
+    padding: 3rem 0 1.5rem;
+  }
+  footer h4 {
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  @media (max-width: 800px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .foot-grid { grid-template-columns: 1fr; } }
+  .foot-grid p, .foot-grid a {
+    color: #b9c8db;
+    font-size: 0.92rem;
+    text-decoration: none;
+  }
+  .foot-grid a:hover { color: #fff; text-decoration: underline; }
+  .foot-grid ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+  .foot-brand .crest {
+    background: linear-gradient(135deg, #fff 0%, #d9e3f0 100%);
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+  .copyright {
+    text-align: center;
+    padding-top: 1.5rem;
+    font-size: 0.82rem;
+    color: #8ea2bd;
+  }
+  .social { display: flex; gap: 0.75rem; margin-top: 0.5rem; }
+  .social a {
+    width: 34px; height: 34px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    color: #d9e3f0;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .social a:hover { background: var(--crimson); color: #fff; border-color: var(--crimson); text-decoration: none; }
+
+  /* Reveal-on-scroll */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* Trial / preview banner */
+  .trial-banner {
+    background: linear-gradient(90deg, #b8893a 0%, #a3232b 100%);
+    color: #fff;
+    text-align: center;
+    font-size: 0.86rem;
+    letter-spacing: 0.04em;
+    padding: 0.55rem 1rem;
+    font-weight: 500;
+  }
+  .trial-banner strong {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.78rem;
+    margin-right: 0.5rem;
+    background: rgba(0,0,0,0.18);
+    padding: 0.15rem 0.55rem;
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+
+<div class="trial-banner" role="note">
+  <strong>Trial</strong> This is a preview of the HMB-NeSDiN website &mdash; content, names, and design are subject to change.
+</div>
+
+<header class="site">
+  <div class="container nav">
+    <a href="#top" class="brand">
+      <img class="crest" src="logo.svg" alt="HMB-NeSDiN logo"/>
+      <div class="brand-text">
+        <span class="name">HMB-NeSDiN</span>
+        <span class="sub">Harvard &middot; MIT &middot; Boston</span>
+      </div>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#events">Events &amp; News</a>
+      <a href="#involved">Get Involved</a>
+      <a href="#contact" class="cta">Join Us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Harvard &ndash; MIT &ndash; Boston Nepali Scientists Diaspora Network</span>
+        <h1>Nepali scientists across Harvard, MIT, Boston biotech &mdash; and across the United States.</h1>
+        <p class="lead">
+          HMB-NeSDiN brings together the Nepali scientific diaspora at Harvard, MIT, the Greater
+          Boston biotech ecosystem, and across the United States to engage, communicate, and
+          collaborate with one another &mdash; and to build lasting partnerships with the
+          Government of Nepal.
+        </p>
+        <div class="btn-row">
+          <a href="#contact" class="btn btn-primary">Become a member</a>
+          <a href="#about" class="btn btn-ghost">Learn about us</a>
+        </div>
+      </div>
+      <div class="seal" aria-hidden="true">
+        <div>
+          <div class="ring"><img src="logo.svg" alt="HMB-NeSDiN logo"/></div>
+          <h3>Harvard &middot; MIT &middot; Boston</h3>
+          <p class="motto">Scientia &middot; Sangam &middot; Seva</p>
+        </div>
+        <p class="est">Nepali Scientists Diaspora Network</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">About Us</span>
+        <h2>Our mission</h2>
+        <p>
+          The Harvard&ndash;MIT&ndash;Boston Nepali Scientists Diaspora Network (HMB-NeSDiN) is a
+          group that brings together the Nepali scientific diaspora across Harvard, MIT, and the
+          Greater Boston area to engage, communicate, and collaborate with one another, and to
+          work in partnership with the Government of Nepal to advance science, technology, and
+          higher education.
+        </p>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar reveal">
+          <div class="pillar-icon">I.</div>
+          <h3>Connect</h3>
+          <p>
+            Convene Nepali researchers and clinicians across Boston-area universities, hospitals,
+            and biotech firms through seminars, salons, and an active member directory.
+          </p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-icon">II.</div>
+          <h3>Collaborate</h3>
+          <p>
+            Partner with the Government of Nepal, universities, hospitals, and research institutions
+            to advance joint research, grant proposals, and capacity-building initiatives across borders.
+          </p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-icon">III.</div>
+          <h3>Cultivate</h3>
+          <p>
+            Mentor early-career students and scholars through career talks, application clinics,
+            scholarships, and structured one-on-one guidance programs.
+          </p>
+        </div>
+      </div>
+
+      <div class="stats reveal" aria-label="Network at a glance">
+        <div class="stat"><span class="num">120+</span><span class="lbl">Members</span></div>
+        <div class="stat"><span class="num">35+</span><span class="lbl">Institutions</span></div>
+        <div class="stat"><span class="num">14</span><span class="lbl">Disciplines</span></div>
+        <div class="stat"><span class="num">25+</span><span class="lbl">Events Hosted</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Leadership</span>
+        <h2>Leadership team</h2>
+        <p>
+          HMB-NeSDiN is a volunteer-led initiative coordinated by a small team and supported by
+          an Executive Committee. Several committee positions are open and being filled as the
+          network grows &mdash; if you'd like to step into one of them, we'd love to hear from you.
+        </p>
+      </div>
+
+      <h3 class="subgroup-title reveal">Coordinators</h3>
+      <div class="team">
+        <div class="member reveal" style="border-top: 4px solid var(--crimson);">
+          <div class="avatar" aria-hidden="true">DC<img src="photos/danda.jpg" alt="" onerror="this.remove()"/></div>
+          <h3>Danda Chapagai, PhD</h3>
+          <p class="role">Co-Coordinator</p>
+          <p class="affil">Postdoctoral Research Fellow<br/>Harvard Medical School</p>
+        </div>
+        <div class="member reveal" style="border-top: 4px solid var(--crimson);">
+          <div class="avatar" aria-hidden="true">NS<img src="photos/nirajan.jpg" alt="" onerror="this.remove()"/></div>
+          <h3>Nirajan Shrestha, PhD</h3>
+          <p class="role">Co-Coordinator</p>
+          <p class="affil">Postdoctoral Research Fellow<br/>Harvard Medical School</p>
+        </div>
+        <div class="member reveal" style="border-top: 4px solid var(--crimson);">
+          <div class="avatar" aria-hidden="true">SuP<img src="photos/sudip.jpg" alt="" onerror="this.remove()"/></div>
+          <h3>Sudip Poudel, PhD</h3>
+          <p class="role">Co-Coordinator</p>
+          <p class="affil">Postdoctoral Research Fellow<br/>Harvard Medical School</p>
+        </div>
+        <div class="member reveal" style="border-top: 4px solid var(--crimson);">
+          <div class="avatar" aria-hidden="true">ShP<img src="photos/sushil.jpg" alt="" onerror="this.remove()"/></div>
+          <h3>Sushil Pangeni</h3>
+          <p class="role">Co-Coordinator</p>
+          <p class="affil">PhD Candidate<br/>Harvard Medical School</p>
+        </div>
+        <div class="member reveal" style="border-top: 4px solid var(--crimson);">
+          <div class="avatar" aria-hidden="true">BJ<img src="photos/bishnu.jpg" alt="" onerror="this.remove()"/></div>
+          <h3>Bishnu Joshi, PhD</h3>
+          <p class="role">Co-Coordinator</p>
+          <p class="affil">Senior Scientist<br/>Gel4Med</p>
+        </div>
+      </div>
+
+      <h3 class="subgroup-title reveal" style="margin-top: 3.5rem;">Executive Committee</h3>
+      <div class="team">
+        <div class="member reveal" style="opacity: 0.9;">
+          <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #b8893a, #8a6628);">+</div>
+          <h3>President / Chair</h3>
+          <p class="role">Open position</p>
+          <p class="affil">To be announced</p>
+        </div>
+        <div class="member reveal" style="opacity: 0.9;">
+          <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #b8893a, #8a6628);">+</div>
+          <h3>Vice President</h3>
+          <p class="role">Open position</p>
+          <p class="affil">To be announced</p>
+        </div>
+        <div class="member reveal" style="opacity: 0.9;">
+          <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #b8893a, #8a6628);">+</div>
+          <h3>Secretary</h3>
+          <p class="role">Open position</p>
+          <p class="affil">To be announced</p>
+        </div>
+        <div class="member reveal" style="opacity: 0.9;">
+          <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #b8893a, #8a6628);">+</div>
+          <h3>Treasurer</h3>
+          <p class="role">Open position</p>
+          <p class="affil">To be announced</p>
+        </div>
+        <div class="member reveal" style="opacity: 0.9;">
+          <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #b8893a, #8a6628);">+</div>
+          <h3>Programs Lead</h3>
+          <p class="role">Member-at-Large</p>
+          <p class="affil"><a href="#contact">Volunteer to lead</a> seminars, workshops, and the annual symposium.</p>
+        </div>
+        <div class="member reveal" style="opacity: 0.9;">
+          <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #b8893a, #8a6628);">+</div>
+          <h3>Mentorship Lead</h3>
+          <p class="role">Member-at-Large</p>
+          <p class="affil"><a href="#contact">Volunteer to lead</a> mentorship programs for students and early-career scholars.</p>
+        </div>
+        <div class="member reveal" style="opacity: 0.9;">
+          <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #b8893a, #8a6628);">+</div>
+          <h3>Communications Lead</h3>
+          <p class="role">Member-at-Large</p>
+          <p class="affil"><a href="#contact">Volunteer to lead</a> the website, newsletter, and member outreach.</p>
+        </div>
+        <div class="member reveal" style="opacity: 0.9;">
+          <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #b8893a, #8a6628);">+</div>
+          <h3>Student Representative</h3>
+          <p class="role">Member-at-Large</p>
+          <p class="affil"><a href="#contact">Volunteer to represent</a> graduate and postdoctoral voices.</p>
+        </div>
+      </div>
+
+      <h3 class="subgroup-title reveal" style="margin-top: 3.5rem;">Advisory Board</h3>
+      <div class="team">
+        <div class="member reveal" style="opacity: 0.9;">
+          <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #b8893a, #8a6628);">+</div>
+          <h3>Senior Scientific Advisor</h3>
+          <p class="role">To be announced</p>
+          <p class="affil">Faculty member at a Boston-area university or research institute</p>
+        </div>
+        <div class="member reveal" style="opacity: 0.9;">
+          <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #b8893a, #8a6628);">+</div>
+          <h3>Industry Advisor</h3>
+          <p class="role">To be announced</p>
+          <p class="affil">Senior scientist or executive in the Boston biotech ecosystem</p>
+        </div>
+        <div class="member reveal" style="opacity: 0.9;">
+          <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #b8893a, #8a6628);">+</div>
+          <h3>Clinical Advisor</h3>
+          <p class="role">To be announced</p>
+          <p class="affil">Physician-scientist at a Boston-area hospital</p>
+        </div>
+        <div class="member reveal" style="opacity: 0.9;">
+          <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #b8893a, #8a6628);">+</div>
+          <h3>Nepal Liaison Advisor</h3>
+          <p class="role">To be announced</p>
+          <p class="affil">Senior academic or government official based in Nepal</p>
+        </div>
+      </div>
+
+      <div class="members-note reveal">
+        <p>
+          Interested in serving on the Executive Committee or Advisory Board, or joining a
+          working group? Please <a href="#contact">reach out</a> &mdash; the network is being
+          built collaboratively and we welcome new contributors at every level.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Events &amp; News</span>
+        <h2>Upcoming events</h2>
+        <p>Seminars, networking salons, and workshops &mdash; open to members and invited guests.</p>
+      </div>
+
+      <div class="events-list">
+        <article class="event reveal" style="border-left-color: var(--gold); background: linear-gradient(0deg, rgba(184,137,58,0.06), rgba(184,137,58,0.06)), var(--bg);">
+          <div class="event-date">
+            <span class="month">May</span>
+            <span class="day">16</span>
+            <span class="year">2026</span>
+          </div>
+          <div class="event-body">
+            <h3>Inaugural Scientists' Meet-Up &mdash; Harvard, MIT &amp; Boston Biotech</h3>
+            <p>Our kickoff gathering for Nepali postdocs and graduate students at Harvard and MIT, alongside scientists working across the Boston-area biotech ecosystem. Casual introductions, lightning self-intros, and an open conversation about what HMB-NeSDiN should be.</p>
+            <div class="event-meta">Cambridge, MA &middot; Saturday, 4:00 PM &ndash; 7:00 PM &middot; Light refreshments provided</div>
+          </div>
+          <a class="event-link" href="#contact">RSVP &rarr;</a>
+        </article>
+
+        <article class="event reveal">
+          <div class="event-date">
+            <span class="month">Jun</span>
+            <span class="day">14</span>
+            <span class="year">2026</span>
+          </div>
+          <div class="event-body">
+            <h3>Annual Summer Science Symposium</h3>
+            <p>Member talks across biomedical, computational, and engineering disciplines, followed by a networking reception.</p>
+            <div class="event-meta">Cambridge, MA &middot; 2:00 PM &ndash; 7:00 PM</div>
+          </div>
+          <a class="event-link" href="#contact">Register &rarr;</a>
+        </article>
+
+        <article class="event reveal">
+          <div class="event-date">
+            <span class="month">Jul</span>
+            <span class="day">19</span>
+            <span class="year">2026</span>
+          </div>
+          <div class="event-body">
+            <h3>Mentorship Clinic: Graduate &amp; Postdoc Applications</h3>
+            <p>One-on-one application reviews and panel Q&amp;A with current students and faculty.</p>
+            <div class="event-meta">Virtual (Zoom) &middot; 6:30 PM ET</div>
+          </div>
+          <a class="event-link" href="#contact">RSVP &rarr;</a>
+        </article>
+
+        <article class="event reveal">
+          <div class="event-date">
+            <span class="month">Sep</span>
+            <span class="day">12</span>
+            <span class="year">2026</span>
+          </div>
+          <div class="event-body">
+            <h3>Boston &harr; Kathmandu Research Roundtable</h3>
+            <p>Discussion of joint research opportunities with partner institutions in Nepal.</p>
+            <div class="event-meta">Hybrid &middot; Location TBA</div>
+          </div>
+          <a class="event-link" href="#contact">Details &rarr;</a>
+        </article>
+      </div>
+
+      <div class="news-grid">
+        <article class="news-card reveal">
+          <span class="tag">Announcement</span>
+          <h3>HMB-NeSDiN launches Spring 2026 mentorship cohort</h3>
+          <p>Pairing twenty undergraduate and master's students in Nepal with Harvard, MIT, and Boston-area biotech mentors for a six-month program.</p>
+          <div class="date">April 2026</div>
+        </article>
+        <article class="news-card reveal">
+          <span class="tag">Spotlight</span>
+          <h3>Member feature: Translational research in global health</h3>
+          <p>Highlighting the work of HMB-NeSDiN members on equitable access to diagnostics and care in low-resource settings.</p>
+          <div class="date">March 2026</div>
+        </article>
+        <article class="news-card reveal">
+          <span class="tag">Partnership</span>
+          <h3>MoU signed with a Nepal-based research institute</h3>
+          <p>A new collaboration framework supports student exchanges, joint seminars, and co-authored publications.</p>
+          <div class="date">February 2026</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED -->
+  <section id="involved">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Get Involved</span>
+        <h2>Join the network</h2>
+        <p>
+          Membership is open to Nepali scientists, postdocs, graduate students, physicians, and
+          biotech professionals at Harvard, MIT, and across the Greater Boston area, as well as
+          students and trainees in any scientific field. There are several ways to participate.
+        </p>
+      </div>
+
+      <div class="involve-grid">
+        <div class="involve-card reveal" id="contact">
+          <h3>Membership inquiry</h3>
+          <p>Tell us a bit about yourself and we'll be in touch within a few days.</p>
+          <form id="join-form" name="membership" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="membership" />
+            <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+            <div class="row">
+              <div class="field">
+                <label for="fname">First name</label>
+                <input id="fname" name="fname" type="text" autocomplete="given-name" required />
+              </div>
+              <div class="field">
+                <label for="lname">Last name</label>
+                <input id="lname" name="lname" type="text" autocomplete="family-name" required />
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="affiliation">Affiliation</label>
+              <input id="affiliation" name="affiliation" type="text" placeholder="University, hospital, or company" />
+            </div>
+            <div class="field">
+              <label for="interest">Interest</label>
+              <select id="interest" name="interest">
+                <option value="">Select one&hellip;</option>
+                <option>Become a member</option>
+                <option>Mentor a student</option>
+                <option>Volunteer for an event</option>
+                <option>Partner with HMB-NeSDiN</option>
+                <option>Speak at a seminar</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Message (optional)</label>
+              <textarea id="message" name="message" placeholder="Anything you'd like us to know"></textarea>
+            </div>
+            <div class="form-msg" id="form-msg" role="status">
+              Thank you &mdash; your message has been recorded locally. A volunteer will contact you at the email provided.
+            </div>
+            <button type="submit">Send inquiry</button>
+          </form>
+        </div>
+
+        <div class="involve-card reveal">
+          <h3>Ways to contribute</h3>
+          <ul>
+            <li><strong>Become a member.</strong> Add your name to the directory and receive event invitations and the quarterly newsletter.</li>
+            <li><strong>Mentor.</strong> Volunteer one to two hours a month to support a student in Nepal or a trainee in Boston.</li>
+            <li><strong>Speak.</strong> Present your research at a member seminar or community science talk.</li>
+            <li><strong>Partner.</strong> Bring your institution into a collaboration with one of our partner organizations.</li>
+            <li><strong>Sponsor.</strong> Support student travel awards, mentorship programs, and the annual symposium.</li>
+          </ul>
+
+          <div class="contact-meta">
+            <div><span class="label">Email</span><a href="mailto:info@hmb-nesdin.org">info@hmb-nesdin.org</a></div>
+            <div><span class="label">Area</span><span>Greater Boston, Massachusetts</span></div>
+            <div><span class="label">Status</span><span>Volunteer-led, non-profit chapter</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img class="crest" src="logo.svg" alt="HMB-NeSDiN logo" style="background: #fff; padding: 4px;"/>
+        <h4 style="margin-top: 0.75rem;">HMB-NeSDiN</h4>
+        <p>Harvard&ndash;MIT&ndash;Boston Nepali Scientists Diaspora Network. Connecting Nepali scientists, postdocs, graduate students, and biotech professionals across the Greater Boston area.</p>
+        <div class="social" aria-label="Social links">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="X / Twitter">X</a>
+          <a href="#" aria-label="YouTube">Yt</a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+          <li><a href="#events">Events &amp; News</a></li>
+          <li><a href="#involved">Get Involved</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#events">Annual Symposium</a></li>
+          <li><a href="#events">Mentorship Cohort</a></li>
+          <li><a href="#events">Research Roundtables</a></li>
+          <li><a href="#involved">Speaker Series</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@hmb-nesdin.org">info@hmb-nesdin.org</a></li>
+          <li>Greater Boston, MA</li>
+          <li><a href="#contact">Membership inquiry</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; <span id="year">2026</span> Harvard&ndash;MIT&ndash;Boston Nepali Scientists Diaspora Network (HMB-NeSDiN). All rights reserved.
+      <br/>
+      <span style="opacity: 0.75; font-style: italic;">This is a trial / preview website &mdash; content is subject to change.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const toggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Membership form — submits to Netlify Forms (works automatically when hosted on Netlify)
+  const form = document.getElementById('join-form');
+  const msg = document.getElementById('form-msg');
+
+  function setMsg(text, ok) {
+    msg.textContent = text;
+    msg.style.background = ok ? '#e7f0e6' : '#fbeaea';
+    msg.style.borderColor = ok ? '#b9d3b6' : '#e6b9b9';
+    msg.style.color = ok ? '#2e5a2c' : '#7a1f1f';
+    msg.classList.add('show');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.fname.value.trim() || !form.lname.value.trim() || !form.email.value.trim()) {
+      setMsg('Please fill in your name and email so we can reach you.', false);
+      return;
+    }
+    const fname = form.fname.value.trim();
+    try {
+      const data = new FormData(form);
+      const body = new URLSearchParams();
+      data.forEach((v, k) => body.append(k, v));
+      const resp = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() });
+      if (!resp.ok) throw new Error('Network error');
+      setMsg('Thank you, ' + fname + ' — your inquiry was received. An HMB-NeSDiN volunteer will email you shortly.', true);
+      form.reset();
+    } catch (err) {
+      setMsg('Sorry — we could not submit your inquiry just now. Please email info@hmb-nesdin.org instead.', false);
+    }
+  });
+</script>
+</body>
+</html>

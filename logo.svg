@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="logo-title">
+  <title id="logo-title">HMB-NeSDiN — Harvard, MIT &amp; Boston Nepali Scientists Diaspora Network</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#143d66"/>
+      <stop offset="100%" stop-color="#0e2a47"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#f0c66a"/>
+      <stop offset="70%" stop-color="#b8893a"/>
+      <stop offset="100%" stop-color="#a3232b"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background disc -->
+  <circle cx="50" cy="50" r="48" fill="url(#bg)"/>
+  <!-- Gold outer ring -->
+  <circle cx="50" cy="50" r="47.2" fill="none" stroke="#b8893a" stroke-width="1.5"/>
+  <!-- Subtle inner ring -->
+  <circle cx="50" cy="50" r="43" fill="none" stroke="#b8893a" stroke-width="0.4" opacity="0.55"/>
+
+  <!-- Network constellation across top (scientific community) -->
+  <g>
+    <line x1="22" y1="24" x2="38" y2="14" stroke="#fbf8f3" stroke-width="0.7" opacity="0.85"/>
+    <line x1="38" y1="14" x2="62" y2="14" stroke="#fbf8f3" stroke-width="0.7" opacity="0.85"/>
+    <line x1="62" y1="14" x2="78" y2="24" stroke="#fbf8f3" stroke-width="0.7" opacity="0.85"/>
+    <line x1="38" y1="14" x2="50" y2="26" stroke="#fbf8f3" stroke-width="0.7" opacity="0.85"/>
+    <line x1="62" y1="14" x2="50" y2="26" stroke="#fbf8f3" stroke-width="0.7" opacity="0.85"/>
+
+    <circle cx="22" cy="24" r="1.8" fill="#fbf8f3"/>
+    <circle cx="38" cy="14" r="2.2" fill="#b8893a"/>
+    <circle cx="62" cy="14" r="2.2" fill="#b8893a"/>
+    <circle cx="78" cy="24" r="1.8" fill="#fbf8f3"/>
+    <circle cx="50" cy="26" r="2.6" fill="#fbf8f3"/>
+  </g>
+
+  <!-- Sun (from Nepal flag motif) -->
+  <circle cx="50" cy="45" r="6.5" fill="url(#sun)"/>
+
+  <!-- Back peak (smaller, lighter) -->
+  <path d="M 16 76 L 36 50 L 50 68 L 56 60 L 70 76 Z" fill="#fbf8f3" opacity="0.78"/>
+
+  <!-- Front peak (Himalaya, dominant) -->
+  <path d="M 30 76 L 62 32 L 88 76 Z" fill="#ffffff"/>
+
+  <!-- Snow cap accent (crimson highlight) -->
+  <path d="M 58 38 L 62 32 L 66 38 L 64 41 L 60 41 Z" fill="#a3232b"/>
+  <!-- Snow shading -->
+  <path d="M 62 32 L 88 76 L 70 76 L 62 60 Z" fill="#e8e0d2" opacity="0.6"/>
+
+  <!-- Gold baseline -->
+  <line x1="12" y1="76" x2="88" y2="76" stroke="#b8893a" stroke-width="1.6"/>
+</svg>
